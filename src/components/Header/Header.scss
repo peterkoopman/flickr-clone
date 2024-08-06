@@ -1,0 +1,14 @@
+header {
+  background-color: #000;
+  border: none;
+}
+
+.logo {
+  height: 24px;
+  padding: 12px;
+
+  &__icon {
+    height: 24px;
+    width: auto;
+  }
+}

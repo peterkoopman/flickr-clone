@@ -1,0 +1,29 @@
+.metadata {
+  &__container {
+    display: flex;
+    gap: 10px;
+    font-size: 14px;
+
+    .account-name {
+      display: inline;
+      margin: 0;
+    }
+
+    .stats {
+      display: flex;
+      gap: 10px;
+
+      &__followers {
+        &::after {
+          content: "\2022";
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  &__probadge {
+    width: 36.25px;
+    height: 20px;
+  }
+}
