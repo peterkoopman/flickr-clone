@@ -1,13 +1,13 @@
 import React from "react";
-import "./Header.scss";
+import style from "./Header.module.scss";
 
 const Header: React.FC = () => {
   return (
     <header>
       <div className="grid">
-        <div className="logo">
+        <div className={style.logo}>
           <svg
-            className="logo__icon"
+            className={style.logo__icon}
             viewBox="0 0 204 45"
             id="icon-flickr_logo_dots"
             xmlns="http://www.w3.org/2000/svg"

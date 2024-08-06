@@ -1,15 +1,15 @@
 import "./App.css";
 import React from "react";
 import Header from "./components/Header/Header";
-import Hero from "./components/Hero/Hero";
-import Album from "./components/Album/Album";
+import Hero from "./components/Hero/Hero/Hero";
+import Gallery from "./components/Gallery/Gallery/Gallery";
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <Header />
       <Hero />
-      <Album />
+      <Gallery />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import "./HeroInfo.scss";
+import style from "./HeroInfo.module.scss";
 import Avatar from "../Avatar/Avatar";
 import HeroTitle from "../HeroTitle/HeroTitle";
 import HeroMetadata from "../HeroMetadata/HeroMetadata";
@@ -10,9 +10,9 @@ interface Info {
 
 const HeroInfo: React.FC<Info> = ({ name }) => {
   return (
-    <div className="hero-container">
+    <div className={style.hero__container}>
       <Avatar />
-      <div className="hero-info">
+      <div className={style.hero__info}>
         <HeroTitle title={name} />
         <HeroMetadata />
       </div>

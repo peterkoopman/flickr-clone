@@ -1,4 +1,4 @@
-.hero-info {
+.hero__info {
   position: relative;
   z-index: 10;
   display: flex;
@@ -8,7 +8,7 @@
   color: #fff;
 }
 
-.hero-container {
+.hero__container {
   display: flex;
   gap: 10px;
 }
