@@ -1,0 +1,14 @@
+.photo {
+  width: calc(33% - 20px);
+  justify-items: center;
+
+  img {
+    width: 100%;
+  }
+}
+
+.details {
+  p {
+    margin: 0;
+  }
+}

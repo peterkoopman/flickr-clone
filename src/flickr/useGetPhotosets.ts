@@ -5,6 +5,7 @@ interface Sets {
   photosets: {
     photoset: [
       {
+        id: string;
         title: {
           _content: string;
         };
@@ -18,6 +19,7 @@ const useGetPhotosets = () => {
     photosets: {
       photoset: [
         {
+          id: "",
           title: {
             _content: "",
           },
