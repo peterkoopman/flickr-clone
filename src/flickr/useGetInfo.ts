@@ -1,38 +1,18 @@
 import { useEffect, useState } from "react";
 import { flickr, userId } from "./common";
-
-interface Info {
-  description: {
-    _content: string;
-  };
+interface StringContent {
+  _content: string;
+}
+export interface Info {
+  description: StringContent;
   ispro: boolean;
-  location: {
-    _content: string;
-  };
-  realname: {
-    _content: string;
-  };
-  username: {
-    _content: string;
-  };
+  location: StringContent;
+  realname: StringContent;
+  username: StringContent;
 }
 
 const useGetInfo = () => {
-  const [info, setInfo] = useState<Info>({
-    description: {
-      _content: "",
-    },
-    ispro: false,
-    location: {
-      _content: "",
-    },
-    realname: {
-      _content: "",
-    },
-    username: {
-      _content: "",
-    },
-  });
+  const [info, setInfo] = useState<Info | null>(null);
 
   useEffect(() => {
     flickr("flickr.people.getInfo", {

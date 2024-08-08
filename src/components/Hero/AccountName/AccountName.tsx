@@ -2,7 +2,7 @@ import React from "react";
 
 interface Name {
   className: string;
-  accountName: string;
+  accountName: string | null;
 }
 
 const AccountName: React.FC<Name> = ({ className, accountName }) => {

@@ -3,15 +3,15 @@ import ProBadge from "../ProBadge/ProBadge";
 import AccountName from "../AccountName/AccountName";
 import Stats from "../Stats/Stats";
 import React from "react";
-import useGetInfo from "../../../flickr/useGetInfo";
+import useGetInfo, { Info } from "../../../flickr/useGetInfo";
 
 const HeroMetadata: React.FC = () => {
-  const info = useGetInfo();
-  const accountName: string = info.username._content;
+  const info: Info | null = useGetInfo();
+  const accountName: string | null = info?.username._content ?? null;
 
   return (
     <div className={style.metadata__container}>
-      {info.ispro ? (
+      {info?.ispro ? (
         <div className={style.metadata__probadge}>
           <ProBadge />
         </div>

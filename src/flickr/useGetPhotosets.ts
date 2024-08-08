@@ -1,32 +1,21 @@
 import { useState, useEffect } from "react";
 import { flickr, userId } from "./common";
 
+interface Photoset {
+  id: string;
+  title: {
+    _content: string;
+  };
+}
+
 interface Sets {
   photosets: {
-    photoset: [
-      {
-        id: string;
-        title: {
-          _content: string;
-        };
-      },
-    ];
+    photoset: Photoset[];
   };
 }
 
 const useGetPhotosets = () => {
-  const [sets, setSets] = useState<Sets>({
-    photosets: {
-      photoset: [
-        {
-          id: "",
-          title: {
-            _content: "",
-          },
-        },
-      ],
-    },
-  });
+  const [sets, setSets] = useState<Sets | null>(null);
 
   useEffect(() => {
     flickr("flickr.photosets.getList", {

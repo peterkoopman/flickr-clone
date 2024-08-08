@@ -12,14 +12,14 @@ interface IPhoto {
 }
 
 const Gallery: React.FC = () => {
-  const [photoset, setPhotoset] = useState("72177720313722432");
-  const [photos, setPhotos] = useState<Array<IPhoto>>([]);
+  const [photosetId, setPhotosetId] = useState("72177720313722432");
+  const [photos, setPhotos] = useState<IPhoto[]>([]);
   const [title, setTitle] = useState<string>("");
 
-  const getPhotos = (photoset: string) => {
+  const getPhotos = (photosetId: string) => {
     flickr("flickr.photosets.getPhotos", {
       user_id: userId,
-      photoset_id: photoset,
+      photoset_id: photosetId,
     }).then((data) => {
       console.log(data);
       setPhotos(data?.photoset?.photo);
@@ -28,14 +28,14 @@ const Gallery: React.FC = () => {
   };
 
   useEffect(() => {
-    getPhotos(photoset);
-  }, [photoset]);
+    getPhotos(photosetId);
+  }, [photosetId]);
 
   return (
     <div className={style.gallery}>
       <div className="grid">
         <h2>{title}</h2>
-        <Chooser setPhotoset={setPhotoset} />
+        <Chooser setPhotoset={setPhotosetId} />
         <div className={style.grid}>
           {photos.map((photo) => {
             return (

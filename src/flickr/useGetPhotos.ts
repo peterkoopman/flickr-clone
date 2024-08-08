@@ -15,11 +15,7 @@ interface Photoset {
 }
 
 const useGetPhotos = (photoset_id: string) => {
-  const [photos, setPhotos] = useState<Photoset>({
-    photoset: {
-      photo: [],
-    },
-  });
+  const [photos, setPhotos] = useState<Photoset | null>(null);
 
   useEffect(() => {
     flickr("flickr.photosets.getPhotos", {
