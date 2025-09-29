@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { flickr, userId } from "./common";
+
 interface StringContent {
   _content: string;
 }
@@ -17,7 +18,7 @@ const useGetInfo = () => {
   useEffect(() => {
     flickr("flickr.people.getInfo", {
       user_id: userId,
-    }).then((data) => {
+    }).then((data: any) => {
       setInfo(data.person);
     });
   }, []);
