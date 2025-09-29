@@ -11,7 +11,7 @@ interface IPhoto {
   secret: string;
 }
 
-const Gallery: React.FC = () => {
+const Gallery = () => {
   const [photosetId, setPhotosetId] = useState("72177720313722432");
   const [photos, setPhotos] = useState<IPhoto[]>([]);
   const [title, setTitle] = useState<string>("");
@@ -21,7 +21,6 @@ const Gallery: React.FC = () => {
       user_id: userId,
       photoset_id: photosetId,
     }).then((data) => {
-      console.log(data);
       setPhotos(data?.photoset?.photo);
       setTitle(data?.photoset?.title);
     });
@@ -35,7 +34,7 @@ const Gallery: React.FC = () => {
     <div className={style.gallery}>
       <div className="grid">
         <h2>{title}</h2>
-        <Chooser setPhotoset={setPhotosetId} />
+        <Chooser setPhotosetId={setPhotosetId} />
         <div className={style.grid}>
           {photos.map((photo) => {
             return (
