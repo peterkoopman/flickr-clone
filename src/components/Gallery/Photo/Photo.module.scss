@@ -1,6 +1,10 @@
+.photo + .photo {
+  margin-top: 20px;
+}
+
+
 .photo {
-  width: calc(33% - 20px);
-  justify-items: center;
+  break-inside: avoid;
 
   img {
     width: 100%;

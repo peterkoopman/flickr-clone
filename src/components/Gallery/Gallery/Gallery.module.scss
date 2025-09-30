@@ -1,9 +1,28 @@
 .gallery {
-  margin-top: 20px;
+  margin-top: 1rem;
+}
+
+.container {
+  width: calc(100% - 2rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  columns: 1 auto;
+  gap: 1rem;
 }
+
+@media (min-width: 500px) {
+  .grid {
+    columns: 2 auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .grid {
+    columns: 3 auto;
+  }
+}
+

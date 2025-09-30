@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import style from "./Gallery.module.scss";
-import Photo from "../Photo/Photo";
-import Chooser from "../Chooser/Chooser";
-import { flickr, userId } from "../../../flickr/common";
+import Photo from "@/components/Gallery/Photo/Photo";
+import Chooser from "@/components/Gallery/Chooser/Chooser";
+import { flickr, userId } from "@/flickr/common";
 
 interface IPhoto {
   id: string;
@@ -12,11 +12,13 @@ interface IPhoto {
 }
 
 const Gallery = () => {
-  const [photosetId, setPhotosetId] = useState("72177720313722432");
+  const [photosetId, setPhotosetId] = useState<string>('');
   const [photos, setPhotos] = useState<IPhoto[]>([]);
   const [title, setTitle] = useState<string>("");
 
   const getPhotos = (photosetId: string) => {
+    if(photosetId === '') return;
+
     flickr("flickr.photosets.getPhotos", {
       user_id: userId,
       photoset_id: photosetId,
@@ -32,11 +34,12 @@ const Gallery = () => {
 
   return (
     <div className={style.gallery}>
-      <div className="grid">
+      <div className={style.container}>
         <h2>{title}</h2>
         <Chooser setPhotosetId={setPhotosetId} />
         <div className={style.grid}>
           {photos.map((photo) => {
+            console.log(photo)
             return (
               <Photo
                 key={photo.id}

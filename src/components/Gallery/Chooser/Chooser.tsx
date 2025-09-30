@@ -1,5 +1,5 @@
 import {ReactNode} from "react";
-import useGetPhotosets from "../../../flickr/useGetPhotosets";
+import useGetPhotosets from "@/flickr/useGetPhotosets";
 import { useState, useEffect } from 'react';
 
 interface Props {
@@ -21,6 +21,7 @@ const Chooser = ({ setPhotosetId }: Props) => {
           </option>
         );
       });
+      setPhotosetId(data?.photosets.photoset[0].id);
       setOptions(optionSet);
     }
   }, [data, isLoading, error]);
