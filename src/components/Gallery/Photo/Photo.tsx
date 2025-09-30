@@ -10,14 +10,12 @@ interface Props {
 
 const Photo = ({ url, id, title, server, secret }: Props) => {
   const filteredTitle = title.endsWith(".jpg") ? '' : title;
+  // NB we only serve the 400px w image ('_w' extension on the url)
   return (
     <div key={id} className={style.photo}>
       <a href={url} title={title} target="_blank" rel="noreferrer">
         <img
-          src={`https://live.staticflickr.com/${server}/${id}_${secret}.jpg`}
-          // srcset={
-          //   "https://live.staticflickr.com/" +
-          // }
+          src={`https://live.staticflickr.com/${server}/${id}_${secret}_w.jpg`}
           alt={title}
         />
       </a>
