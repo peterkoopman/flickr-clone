@@ -10,11 +10,20 @@
 
 .hero__container {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
 .hero__title {
-  font-size: 36px;
+  font-size: 26px;
   font-weight: normal;
   color: #fff;
 }
+
+@media (min-width: 768px) {
+  .hero__title {
+    font-size: 36px;
+  }
+}
+
+
