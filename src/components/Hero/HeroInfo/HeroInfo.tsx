@@ -1,20 +1,20 @@
 import style from "./HeroInfo.module.scss";
 import Avatar from "@/components/Hero/Avatar/Avatar";
-import HeroTitle from "@/components/Hero/HeroTitle/HeroTitle";
 import HeroMetadata from "@/components/Hero/HeroMetadata/HeroMetadata";
-import React from "react";
 
-interface Info {
-  name: string;
+interface Names {
+  username: string;
+  realname: string;
+  ispro: boolean;
 }
 
-const HeroInfo: React.FC<Info> = ({ name }) => {
+const HeroInfo = ({username, realname, ispro}: Names) => {
   return (
     <div className={style.hero__container}>
       <Avatar />
       <div className={style.hero__info}>
-        <HeroTitle title={name} />
-        <HeroMetadata />
+        <div className={style.hero__title}>{realname}</div>
+        <HeroMetadata username={username} ispro={ispro} />
       </div>
     </div>
   );

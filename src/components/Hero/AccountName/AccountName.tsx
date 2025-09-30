@@ -1,11 +1,9 @@
-import React from "react";
-
 interface Name {
   className: string;
   accountName: string | null;
 }
 
-const AccountName: React.FC<Name> = ({ className, accountName }) => {
+const AccountName = ({ className, accountName }: Name) => {
   return <p className={className}>{accountName}</p>;
 };
 

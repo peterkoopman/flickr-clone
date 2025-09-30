@@ -1,7 +1,6 @@
-import React from "react";
 import style from "./Stats.module.scss";
 
-const Stats: React.FC = () => {
+const Stats = () => {
   return (
     <div className={style.stats}>
       <div className={style.stats__followers}>11 followers</div>

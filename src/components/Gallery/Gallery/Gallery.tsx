@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./Gallery.module.scss";
 import Photo from "@/components/Gallery/Photo/Photo";
 import Chooser from "@/components/Gallery/Chooser/Chooser";

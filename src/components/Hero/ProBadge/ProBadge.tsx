@@ -1,7 +1,6 @@
-import React from "react";
 import "./ProBadge.scss";
 
-const ProBadge: React.FC = () => {
+const ProBadge = () => {
   return (
     <svg
       viewBox="0 0 29 16"
