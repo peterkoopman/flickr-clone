@@ -1,7 +1,7 @@
 import style from "./HeroInfo.module.scss";
-import Avatar from "../Avatar/Avatar";
-import HeroTitle from "../HeroTitle/HeroTitle";
-import HeroMetadata from "../HeroMetadata/HeroMetadata";
+import Avatar from "@/components/Hero/Avatar/Avatar";
+import HeroTitle from "@/components/Hero/HeroTitle/HeroTitle";
+import HeroMetadata from "@/components/Hero/HeroMetadata/HeroMetadata";
 import React from "react";
 
 interface Info {

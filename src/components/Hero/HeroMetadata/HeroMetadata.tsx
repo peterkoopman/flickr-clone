@@ -1,9 +1,9 @@
 import style from "./HeroMetadata.module.scss";
-import ProBadge from "../ProBadge/ProBadge";
-import AccountName from "../AccountName/AccountName";
-import Stats from "../Stats/Stats";
+import ProBadge from "@/components/Hero/ProBadge/ProBadge";
+import AccountName from "@/components/Hero/AccountName/AccountName";
+import Stats from "@/components/Hero/Stats/Stats";
 import React from "react";
-import useGetInfo, { Info } from "../../../flickr/useGetInfo";
+import useGetInfo, { Info } from "@/flickr/useGetInfo";
 
 const HeroMetadata: React.FC = () => {
   const info: Info | null = useGetInfo();

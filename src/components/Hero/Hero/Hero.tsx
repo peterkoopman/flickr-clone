@@ -1,7 +1,7 @@
 import style from "./Hero.module.scss";
 import React from "react";
-import HeroInfo from "../HeroInfo/HeroInfo";
-import useGetInfo from "../../../flickr/useGetInfo";
+import HeroInfo from "@/components/Hero/HeroInfo/HeroInfo";
+import useGetInfo from "@/flickr/useGetInfo";
 
 const Hero: React.FC = () => {
   const info = useGetInfo();
