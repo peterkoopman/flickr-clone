@@ -9,6 +9,25 @@ interface IPhoto {
   title: string;
   server: string;
   secret: string;
+  o_width: number;
+  o_height: number;
+}
+
+const calculateDims = (width: number, height: number) => {
+  if(width === height) {
+    return {
+      width: 400,
+      height: 400
+    }
+  }
+
+  const maxDim = Math.max(width, height);
+  const scaleFactor = 400/maxDim;
+
+  return {
+    width: width * scaleFactor,
+    height: height * scaleFactor
+  }
 }
 
 const Gallery = () => {
@@ -23,11 +42,16 @@ const Gallery = () => {
       flickr("flickr.photosets.getPhotos", {
         user_id: userId,
         photoset_id: photosetId,
+        extras: 'o_dims,url_w',
       }).then((data) => {
         setPhotos(data?.photoset?.photo);
         setTitle(data?.photoset?.title);
+      }).catch((err) => {
+        console.log(err);
       });
     }
+
+
   };
 
   useEffect(() => {
@@ -41,12 +65,13 @@ const Gallery = () => {
         <Chooser setPhotosetId={setPhotosetId} />
         <div className={style.grid}>
           {photos.map((photo) => {
-            console.log(photo)
             return (
               <Photo
                 key={photo.id}
                 url={`https://flickr.com/photos/scribblenz/${photo.id}`}
                 id={photo.id}
+                width={calculateDims(Number(photo.o_width), Number(photo.o_height)).width}
+                height={calculateDims(Number(photo.o_width), Number(photo.o_height)).height}
                 title={photo.title}
                 server={photo.server}
                 secret={photo.secret}
