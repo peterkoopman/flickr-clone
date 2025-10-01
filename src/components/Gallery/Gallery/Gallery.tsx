@@ -18,14 +18,16 @@ const Gallery = () => {
 
   const getPhotos = (photosetId: string) => {
     if(photosetId === '') return;
-
-    flickr("flickr.photosets.getPhotos", {
-      user_id: userId,
-      photoset_id: photosetId,
-    }).then((data) => {
-      setPhotos(data?.photoset?.photo);
-      setTitle(data?.photoset?.title);
-    });
+    
+    if(userId) {
+      flickr("flickr.photosets.getPhotos", {
+        user_id: userId,
+        photoset_id: photosetId,
+      }).then((data) => {
+        setPhotos(data?.photoset?.photo);
+        setTitle(data?.photoset?.title);
+      });
+    }
   };
 
   useEffect(() => {

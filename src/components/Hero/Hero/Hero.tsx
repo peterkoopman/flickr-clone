@@ -19,11 +19,13 @@ const Hero = () => {
   const [info, setInfo] = useState<Info | null>(null);
 
   useEffect(() => {
-    flickr("flickr.people.getInfo", {
-      user_id: userId,
-    }).then((data: any) => {
-      setInfo(data.person);
-    });
+    if(userId) {
+      flickr("flickr.people.getInfo", {
+        user_id: userId,
+      }).then((data: any) => {
+        setInfo(data.person);
+      });
+    }
   }, []);
   if (!info) return <p>loading...</p>;
 
